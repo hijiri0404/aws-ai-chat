@@ -1,7 +1,17 @@
 export function greet(name: string): string {
-  const trimmed = name.trim();
-  if (!trimmed) {
+  if (!name || name.trim() === "") {
     return "Hello, Guest!";
   }
-  return `Hello, ${trimmed}!`;
+  return `Hello, ${name}!`;
+}
+
+export function createChatTitle(initialMessage: string): string {
+  const titleLength = 20;
+  if (!initialMessage || initialMessage.trim() === "") {
+    return "New Chat";
+  }
+
+  return initialMessage.length > titleLength
+    ? `${initialMessage.substring(0, titleLength)}`
+    : initialMessage;
 }
